@@ -17,7 +17,7 @@ const provider = new RpcProvider({
 
 
 
-export default function page() {
+export default function Page() {
   const [connection, setConnection] = useState<
     null | undefined
   >(null);
