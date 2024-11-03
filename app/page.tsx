@@ -4,7 +4,7 @@ import { constants, Contract, RpcProvider } from "starknet";
 import {
   connect,
   disconnect,
-} from "tokenbound-connectkit-v3";
+} from "tokenbound-connectkit-test";
 import { CounterABi } from "./utils/abi";
 
 
