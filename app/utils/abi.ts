@@ -1,41 +1,41 @@
 export const CounterABi = [
   {
-    "name": "ICounterImpl",
+    "name": "HelloStarknetImpl",
     "type": "impl",
-    "interface_name": "cairo_bootcamp_3::counter::ICounter"
+    "interface_name": "counter::IHelloStarknet"
   },
   {
-    "name": "cairo_bootcamp_3::counter::ICounter",
+    "name": "counter::IHelloStarknet",
     "type": "interface",
     "items": [
       {
-        "name": "get_count",
-        "type": "function",
-        "inputs": [],
-        "outputs": [
-          {
-            "type": "core::integer::u32"
-          }
-        ],
-        "state_mutability": "view"
-      },
-      {
-        "name": "set_count",
+        "name": "increase_balance",
         "type": "function",
         "inputs": [
           {
             "name": "amount",
-            "type": "core::integer::u32"
+            "type": "core::felt252"
           }
         ],
         "outputs": [],
         "state_mutability": "external"
+      },
+      {
+        "name": "get_balance",
+        "type": "function",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::felt252"
+          }
+        ],
+        "state_mutability": "view"
       }
     ]
   },
   {
     "kind": "enum",
-    "name": "cairo_bootcamp_3::counter::Counter::Event",
+    "name": "counter::HelloStarknet::Event",
     "type": "event",
     "variants": []
   }
