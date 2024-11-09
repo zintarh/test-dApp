@@ -9,7 +9,6 @@ import { CounterABi } from "./utils/abi";
 
 
 
-
 const contractAddress = "0x18ba8fe6834e089c09d62b3ff41e94f549a9797a7b93a1fb112ca9fbaf3959d";
 
 // const provider = new RpcProvider({
@@ -17,12 +16,9 @@ const contractAddress = "0x18ba8fe6834e089c09d62b3ff41e94f549a9797a7b93a1fb112ca
 // })
 
 
-
-
 const provider = new RpcProvider({
-  nodeUrl: "https://starknet-mainnet.public.blastapi.io",
+  nodeUrl: "https://starknet-mainnet.public.blastapi.io/rpc/v0_7",
 })
-
 
 export default function Page() {
   const [connection, setConnection] = useState<
@@ -33,8 +29,6 @@ export default function Page() {
   const [account, setAccount] = useState();
   const counterContract = new Contract(CounterABi, contractAddress, provider);
   const [count, setCount] = useState<number>(0)
-
-
 
   const connectFn = async () => {
     try {
