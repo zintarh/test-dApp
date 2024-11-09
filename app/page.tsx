@@ -38,7 +38,7 @@ export default function Page() {
         },
       });
 
-      console.log(wallet, 'connected account')
+      console.log(wallet, 'wallet')
 
       setConnection(wallet);
       setAccount(wallet?.account);
