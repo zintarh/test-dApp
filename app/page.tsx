@@ -37,12 +37,12 @@ export default function Page() {
     }
   };
 
-  // const disconnectFn = async () => {
-  //   await disconnect();
-  //   setAddress("");
-  //   setAccount(undefined);
-  //   setConnection(null);
-  // };
+  const disconnectFn = async () => {
+    // await disconnect();
+    setAddress("");
+    setAccount(undefined);
+    setConnection(null);
+  };
 
   useEffect(() => {
     const getCounter = async () => {
