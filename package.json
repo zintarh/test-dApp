@@ -19,7 +19,7 @@
     "react-dom": "^18",
     "starknet": "^6.11.0",
     "tailwindcss": "^3.4.1",
-    "tokenbound-connectkit-v2-test": "^1.0.0"
+    "tokenbound-connectkit-v2-test": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",

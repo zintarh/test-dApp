@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { constants, Contract, RpcProvider } from "starknet";
-// import { connect } from "tokenbound-connectkit-v2-test";
+import { connect, disconnect } from "tokenbound-connectkit-v2-test";
 import { CounterABi } from "./utils/abi";
 
 const contractAddress = "0x18ba8fe6834e089c09d62b3ff41e94f549a9797a7b93a1fb112ca9fbaf3959d";
@@ -20,17 +20,17 @@ export default function Page() {
 
   const connectFn = async () => {
     try {
-      // const { wallet } = await connect({
-      //   tokenboundOptions: {
-      //     chainId: constants.NetworkName.SN_MAIN,
-      //   },
-      // });
+      const { wallet } = await connect({
+        tokenboundOptions: {
+          chainId: constants.NetworkName.SN_MAIN,
+        },
+      });
 
-      // console.log(wallet, "wallet");
+      console.log(wallet, "wallet");
 
-      // setConnection(wallet);
-      // setAccount(wallet?.account);
-      // setAddress(wallet?.selectedAddress);
+      setConnection(wallet);
+      setAccount(wallet?.account);
+      setAddress(wallet?.selectedAddress);
     } catch (e) {
       console.error(e, "errpr");
       alert((e as any).message);
@@ -38,7 +38,7 @@ export default function Page() {
   };
 
   const disconnectFn = async () => {
-    // await disconnect();
+    await disconnect();
     setAddress("");
     setAccount(undefined);
     setConnection(null);
