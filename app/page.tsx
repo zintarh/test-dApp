@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { constants, Contract, RpcProvider } from "starknet";
 import { connect, disconnect } from "tokenbound-connectkit-v2-test";
 import { CounterABi } from "./utils/abi";
-
 const contractAddress = "0x18ba8fe6834e089c09d62b3ff41e94f549a9797a7b93a1fb112ca9fbaf3959d";
 
 const provider = new RpcProvider({
