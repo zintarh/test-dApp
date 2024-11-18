@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { constants, Contract, RpcProvider } from "starknet";
-import { connect, disconnect } from "tokenbound-connectkit-v2-test";
+import { connect, disconnect } from "tokenbound-connectkit-test";
 import { CounterABi } from "./utils/abi";
 const contractAddress = "0x18ba8fe6834e089c09d62b3ff41e94f549a9797a7b93a1fb112ca9fbaf3959d";
 
@@ -26,7 +26,6 @@ export default function Page() {
       });
 
       console.log(wallet, "wallet");
-
       setConnection(wallet);
       setAccount(wallet?.account);
       setAddress(wallet?.selectedAddress);
@@ -51,6 +50,7 @@ export default function Page() {
     getCounter();
   }, []);
 
+  
   const setCounter = async () => {
     const call = counterContract.populate("increase_balance", [20]);
     const res = await counterContract.increase_balance(call.calldata);
@@ -65,8 +65,10 @@ export default function Page() {
 
   return (
     <div className="flex flex-col items-center justify-center h-[100vh] ">
-      <p className="py-2 text-[25px] font-bold">Counter dApp</p>
-
+      <div className="my-10">
+      <p className="text-[25px] font-bold">Connect Tokenbound Account Example dApp</p>
+      <p className="text-gray-100 text-center font-normal">Connect with tokenbound and increase counter</p>
+      </div>
       {!connection ? (
         <div>
           <button
