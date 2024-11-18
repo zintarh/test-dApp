@@ -25,7 +25,7 @@ export default function Page() {
         },
       });
 
-      console.log(wallet, "wallet");
+      console.log(wallet);
       setConnection(wallet);
       setAccount(wallet?.account);
       setAddress(wallet?.selectedAddress);
