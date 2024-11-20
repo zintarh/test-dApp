@@ -14,7 +14,6 @@ export default function Page() {
   const [address, setAddress] = useState<string>("");
   const [account, setAccount] = useState<any>();
   const [count, setCount] = useState<number>(0);
-
   const counterContract = new Contract(CounterABi, contractAddress, provider);
 
   const connectFn = async () => {
