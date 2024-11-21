@@ -49,9 +49,9 @@ export default function Page() {
     getCounter();
   }, []);
 
-  
+
   const setCounter = async () => {
-    const call = counterContract.populate("increase_balance", [20]);
+    const call = counterContract.populate("increase_balance", [1]);
     const res = await counterContract.increase_balance(call.calldata);
     await provider.waitForTransaction(res?.transaction_hash);
     const newCount = await counterContract.get_balance();
@@ -65,28 +65,28 @@ export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center h-[100vh] ">
       <div className="my-10">
-      <p className="text-[25px] font-bold">Connect Tokenbound Account Example dApp</p>
-      <p className="text-gray-100 text-center font-normal">Connect with tokenbound and increase counter</p>
+      <p className="text-[30px] text-center font-bold"> Example dApp</p>
+      <p className="py-1 text-center text-[#F1F0E8] font-normal">Connect with tokenbound and increament count by <span className="text-[20px] font-bold">1</span></p>
       </div>
       {!connection ? (
         <div>
           <button
-            className="button cursor-pointer px-5 pt-5 py-3 text-white bg-[#0C0C4F]"
+            className="button text-center cursor-pointer px-5 pt-5 py-3 text-[#F1F0E8] bg-[#0C0C4F]"
             onClick={connectFn}
           >
             Connect Wallet
           </button>
         </div>
       ) : (
-        <button onClick={disconnectFn}>
+        <button className="button text-center cursor-pointer px-5 pt-5 py-3 text-[#F1F0E8] bg-[#0C0C4F]" onClick={disconnectFn}>
           Disconnect
         </button>
       )}
 
       <header>
         {address && (
-          <p>
-            <b>Address: {address}</b>
+          <p className="pt-3">
+            <b>Connected Address: <span className="text-[#F1F0E8]">{address}</span></b>
           </p>
         )}
 
@@ -99,10 +99,10 @@ export default function Page() {
 
           <div>
             <button
-              className="px-5 py-3 bg-[#0C0C4F] text-white cursor-pointer"
+              className="px-5 py-3 bg-[#0C0C4F] text-[#F1F0E8] cursor-pointer"
               onClick={setCounter}
             >
-              Set Count
+              Increment Count
             </button>
           </div>
         </div>
