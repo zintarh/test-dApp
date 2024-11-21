@@ -4,7 +4,6 @@ import { constants, Contract, RpcProvider } from "starknet";
 import { connect, disconnect } from "tokenbound-connectkit-v2-test";
 import { CounterABi } from "./utils/abi";
 const contractAddress = "0x18ba8fe6834e089c09d62b3ff41e94f549a9797a7b93a1fb112ca9fbaf3959d";
-
 const provider = new RpcProvider({
   nodeUrl: "https://starknet-mainnet.public.blastapi.io/rpc/v0_7",
 });
@@ -49,6 +48,7 @@ export default function Page() {
     getCounter();
   }, []);
 
+ 
 
   const setCounter = async () => {
     const call = counterContract.populate("increase_balance", [1]);
@@ -58,9 +58,29 @@ export default function Page() {
     setCount(parseInt(newCount.toString()));
   };
 
-  if (account) {
-    counterContract.connect(account);
+
+  const testCatridge = async () => {
+    account
+    .execute([
+      {
+        contractAddress: "0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7",
+        entrypoint: "transfer",
+        calldata: [
+          "0x03500850b3BE27c320031E6E2dDc3948A42D90Ef8B709c3D146aeCb476847A58",
+          "0.1",
+          "0x0",
+        ],
+      },
+    ])
   }
+
+ 
+  useEffect(() => {
+    if (account) {
+      counterContract.connect(account);
+    }
+  
+  }, [account])
 
   return (
     <div className="flex flex-col items-center justify-center h-[100vh] ">
